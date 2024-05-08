@@ -27,7 +27,6 @@ public class ExpenseMapper implements RowMapper<Expense> {
         expense.setDescription(rs.getString("description"));
         expense.setAmount(rs.getDouble("amount"));
 
-        // Assuming Category and User are also being retrieved correctly
         expense.setCategory(categoryJdbcTemplateRepository.findById(rs.getInt("category_id")));
         expense.setUser(userJdbcTemplateRepository.findById(rs.getInt("user_id")));
 
